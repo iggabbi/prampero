@@ -1,0 +1,24 @@
+protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        int n, i;
+        String aux;
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            aux = request.getParameter("txtN"); //capitura o campo do html
+            n = Integer.parseInt(aux);
+            
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet Calcular</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1> Pares entre [0,"+n+"] </h1>");
+            for (i = 0; i <= n; i = i+2) {
+                out.println(" "+i);
+            }
+            out.println("</body>");
+            out.println("</html>");
+        }
+    }
